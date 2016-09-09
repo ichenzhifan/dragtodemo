@@ -1,0 +1,231 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background-color: #eee;
+}
+
+::selection{
+    background: none;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+/*canvas画布*/
+.canvas {
+
+}
+
+/*canvas*/
+
+/*****begin: thumbnails*******/
+.thumbnails {
+    position: fixed;
+    width: 14%;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+
+/********end: thumbnails********/
+
+/*****begin: tool-list*******/
+.tool-list {
+    min-width: 200px;
+    background-color: #333;
+    height: 50px;
+}
+
+/********end: tool-list********/
+
+/*****begin: canvas*******/
+.canvas {
+    width: 70%;
+    background-color: #fff;
+    height: 700px;
+    margin: 20px 0 0 22%;
+    position: relative;
+    overflow: hidden;
+}
+
+.canvas canvas{
+    background-color: #eee;
+}
+
+.working .item{
+    position: absolute;
+    top:50px;
+    left: 50px;
+    cursor: move;
+}
+
+.working .item::selection{
+    background: none;
+}
+
+/*出血线*/
+.canvas .blood {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    border: 1px solid darkred;
+}
+
+/*出血线*/
+.canvas .security {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    border: 1px dashed darkblue;
+}
+
+/*图片选择框*/
+#selectingBox {
+    position: absolute;
+    border: 1px solid #6EB1EB;
+    background: rgba(22, 145, 232, 0.1);
+    display: none;
+    z-index: 11;
+}
+
+#selectingBox.show {
+    display: block;
+}
+
+/*图形选择后的控件容器*/
+#shapeControls {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 1px solid rgb(136, 51, 51);
+    display: none;
+    cursor: move;
+    z-index: 10;
+}
+
+#shapeControls.show {
+    display: block;
+}
+
+.controller {
+    position: absolute;
+    background: white;
+    border: 1px solid rgb(136, 51, 51);
+    width: 6px;
+    height: 6px;
+}
+
+.controller:nth-of-type(1) {
+    top: -4px;
+    left: -4px;
+}
+
+.controller:nth-of-type(2) {
+    top: -4px;
+    left: 196px;
+}
+
+.controller:nth-of-type(3) {
+    top: 196px;
+    left: -4px;
+}
+
+.controller:nth-of-type(4) {
+    top: 196px;
+    left: 196px;
+}
+
+/*选中元素的图标容器*/
+.shape-contour {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 150px;
+}
+
+.shape-contour .shape-anchor {
+    position: absolute;
+    background: white;
+    border: 1px solid rgb(136, 51, 51);
+    border-radius: 4px;
+    width: 6px;
+    height: 6px;
+    display: none;
+}
+
+.shape-contour.show .shape-anchor{
+    display: block;
+}
+
+.shape-anchor:nth-of-type(1){
+    top: -3px;
+    left: 50%;
+}
+
+.shape-anchor:nth-of-type(2){
+    top: 50%;
+    left: 100%;
+    transform: translateX(-3px);
+}
+
+.shape-anchor:nth-of-type(3){
+    top: 100%;
+    left: 50%;
+    transform: translateY(-3px);
+}
+
+.shape-anchor:nth-of-type(4){
+    top: 50%;
+    left: -3px;
+}
+
+/********end: canvas********/
+
+/*****begin: lines*******/
+.lines .line {
+    /*border: 1px solid #cdcbcd;*/
+    background-color: #cdcbcd;
+    position: absolute;
+}
+
+.line.vertical-middle {
+    width: 1px;
+    top: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line.horizontal-middle {
+    height: 1px;
+    left: 20px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/********end: lines********/
+
+/*****begin: templates-bar*******/
+.templates-bar {
+    margin: 20px 0 0 14%;
+    width: 86%;
+    background-color: #444;
+    height: 150px;
+}
+
+/********end: templates-bar********/

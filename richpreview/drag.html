@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .left {
+            float: left;
+        }
+
+        header {
+            height: 50px;
+            background: #000;
+            text-align: center;
+        }
+
+        header input {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+        }
+
+        header input:nth-of-type(1) {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        header input:nth-of-type(2) {
+            display: none;
+        }
+
+        img {
+            background-color: #efefef;
+            padding: 6px;
+            border: 1px solid #eee;
+        }
+
+        .img-list {
+            width: 270px;
+            position: absolute;
+            top: 50px;
+            bottom: 0;
+            background: #eee;
+            overflow-y: auto;
+        }
+
+        .img-list img {
+            width: 100px;
+            height: 100px;
+            margin: 10px 10px 0 0;
+        }
+
+        .drop {
+            margin: 50px 0 0 360px;
+            width: 1000px;
+            height: 800px;
+            border: 5px dotted #eee;
+        }
+
+        .drop.enter{
+            border-color: blue;
+        }
+
+        #previewImg {
+            width: 100%;
+            height: 100%;
+            box-shadow: 1px 0 2px 3px #888;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <input type="button" value="选择图片">
+    <input type="file" multiple accept="image/*">
+</header>
+<section class="box">
+    <div class="img-list left" id="list">
+    </div>
+
+    <div class="drop">
+        <img src="#" id="previewImg" style="display: none">
+    </div>
+
+</section>
+
+<script>
+    window.onload = function () {
+        var oInputs = document.getElementsByTagName('input');
+        var oDrop = document.getElementsByClassName('drop')[0];
+        var oPreviewImg = document.getElementById('previewImg');
+        var oImgList = document.getElementById('list');
+
+        var createNewImg = function (url) {
+            if (!url) {
+                return;
+            }
+
+            var img = document.createElement('img');
+            img.src = url;
+
+            img.draggable = true;
+            img.ondragstart = function (ev) {
+                var ev = ev || window.event;
+                ev.dataTransfer.setData('Text',this.src);
+            };
+
+            oImgList.appendChild(img);
+        };
+
+        var preview = function (img) {
+            oPreviewImg.style.display = 'block';
+            oPreviewImg.src = img.src;
+        };
+
+        oInputs[0].onclick = function () {
+            oInputs[1].click();
+        };
+
+        oInputs[1].onchange = function (event) {
+            if (this.files && this.files.length) {
+
+                for (var i = 0; i < this.files.length; i++) {
+                    var url = URL.createObjectURL(this.files[i]);
+                    createNewImg(url);
+                }
+            }
+        };
+
+        oDrop.ondragenter = function (ev) {
+            var ev = ev || window.event;
+
+            this.classList.add('enter');
+        };
+
+        oDrop.ondragover = function (ev) {
+            var ev = ev || window.event;
+            ev.preventDefault();
+        };
+
+        oDrop.ondrop = function (ev) {
+            var ev = ev || window.event;
+            ev.preventDefault();
+
+            this.classList.remove('enter');
+
+            var url = ev.dataTransfer.getData('Text');
+            oPreviewImg.src = url;
+            oPreviewImg.style.display = 'block';
+        };
+
+        oDrop.ondragleave = function (ev) {
+            var ev = ev || window.event;
+
+            this.classList.remove('enter');
+        };
+    };
+</script>
+</body>
+</html>

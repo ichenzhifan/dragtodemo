@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="canvas.css">
+</head>
+<body>
+<!--照片缩略图-->
+<div class="thumbnails"></div>
+
+<!--顶部的工具栏-->
+<div class="tool-list"></div>
+
+<!--画布-->
+<div class="canvas">
+    <!--出血线-->
+    <div class="blood">
+    </div>
+
+    <!--安全区-->
+    <div class="security">
+    </div>
+
+    <!--各种划线-->
+    <div class="lines">
+        <!--垂直中线-->
+        <div class="vertical-middle line"></div>
+
+        <!--水平中线-->
+        <div class="horizontal-middle line"></div>
+    </div>
+
+    <!--工作区-->
+    <div class="working">
+        <div class="item">
+            <canvas id="c1" width="100" height="100"></canvas>
+            <div class="shape-contour">
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+            </div>
+        </div>
+
+        <div class="item">
+            <canvas id="c2" width="200" height="200"></canvas>
+            <div class="shape-contour">
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+            </div>
+        </div>
+
+        <div class="item">
+            <canvas id="c3" width="400" height="200"></canvas>
+            <div class="shape-contour">
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+                <div class="shape-anchor"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--选择框-->
+    <div id="selectingBox">
+    </div>
+
+    <!--控制图标-->
+    <div id="shapeControls">
+        <div class="controller"></div>
+        <div class="controller"></div>
+        <div class="controller"></div>
+        <div class="controller"></div>
+    </div>
+</div>
+
+<!--页面模板区-->
+<div class="templates-bar"></div>
+
+<script src="common.js"></script>
+<script src="canvas.js"></script>
+</body>
+</html>

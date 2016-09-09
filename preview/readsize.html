@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .box img {
+            height: 200px;
+            float: left;
+            margin: 10px 10px 0 0;
+            background-color: #efefef;
+            padding: 6px;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <input type="file" id="file">
+    <div class="img-list" id="list">
+        <!--<img src="" alt="" id="previewImg">-->
+    </div>
+
+</div>
+
+<script>
+    window.onload = function () {
+        var oFile = document.getElementById('file');
+        var oImgList = document.getElementById('list');
+        //var oImg = document.getElementById('previewImg');
+
+        var createNewImg = function (url) {
+            if (!url) {
+                return;
+            }
+
+            var img = document.createElement('img');
+            img.src = url;
+
+            oImgList.appendChild(img);
+        };
+
+        oFile.onchange = function (event) {
+            if (oFile.files && oFile.files.length) {
+                var start = new Date();
+                var url = URL.createObjectURL(oFile.files[0]);
+                var end = new Date();
+
+                console.log(end.getTime() - start.getTime());
+                createNewImg(url);
+            }
+        };
+    };
+</script>
+</body>
+</html>

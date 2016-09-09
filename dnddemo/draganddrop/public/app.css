@@ -1,0 +1,194 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+img::selection{
+    background: none;
+}
+
+.clear-both{
+    clear: both;
+}
+
+/**/
+
+.btn-list {
+    text-align: center;
+}
+
+.btn-list input {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+}
+
+.btn-list input:nth-of-type(1) {
+    font-size: 16px;
+    margin-top: 5px;
+    background: darkred;
+    color: #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.btn-list input:nth-of-type(2) {
+    display: none;
+}
+/**/
+
+/**/
+#box {
+    position: absolute;
+    background-color: #eee;
+    width: 330px;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.img-list .item {
+    height: 150px;
+    width: 150px;
+    outline: none;
+    margin-left: 10px;
+    margin-top: 20px;
+    float: left;
+    position: relative;
+}
+
+.img-list .item img{
+    height: 100%;
+    width: 100%;
+}
+
+/*图片选择框*/
+#selectingBox {
+    position: absolute;
+    border: 1px solid #6EB1EB;
+    background: rgba(22, 145, 232, 0.1);
+    display: none;
+    z-index: 11;
+}
+
+#selectingBox.show {
+    display: block;
+}
+
+/*图形选择后的控件容器*/
+#shapeControls {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 1px solid rgb(136, 51, 51);
+    display: none;
+    cursor: move;
+    z-index: 10;
+}
+
+#shapeControls.show {
+    display: block;
+}
+
+.controller {
+    position: absolute;
+    background: white;
+    border: 1px solid rgb(136, 51, 51);
+    width: 6px;
+    height: 6px;
+}
+
+.controller:nth-of-type(1) {
+    top: -4px;
+    left: -4px;
+}
+
+.controller:nth-of-type(2) {
+    top: -4px;
+    left: 196px;
+}
+
+.controller:nth-of-type(3) {
+    top: 196px;
+    left: -4px;
+}
+
+.controller:nth-of-type(4) {
+    top: 196px;
+    left: 196px;
+}
+
+/*选中元素的图标容器*/
+.shape-contour {
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*width: 150px;*/
+    /*height: 150px;*/
+}
+
+.shape-contour .shape-anchor {
+    position: absolute;
+    background: white;
+    border: 1px solid rgb(136, 51, 51);
+    border-radius: 4px;
+    width: 6px;
+    height: 6px;
+    display: none;
+}
+
+.shape-contour.show .shape-anchor{
+    display: block;
+}
+
+.shape-anchor:nth-of-type(1){
+    top: -3px;
+    left: 50%;
+}
+
+.shape-anchor:nth-of-type(2){
+    top: 50%;
+    left: 100%;
+    transform: translateX(-3px);
+}
+
+.shape-anchor:nth-of-type(3){
+    top: 100%;
+    left: 50%;
+    transform: translateY(-3px);
+}
+
+.shape-anchor:nth-of-type(4){
+    top: 50%;
+    left: -3px;
+}
+/*可释放区域-*/
+.drop-box {
+    margin: 20px 0 0 360px;
+    max-width: 1300px;
+    height: 800px;
+    border: 5px dotted #eee;
+    overflow-x: auto;
+}
+
+.drop-box .item {
+    width: 400px;
+    height: 300px;
+    margin: 20px 20px 0 0;
+    float: left;
+}
+
+.drop-box .item img{
+    width: 400px;
+    height: 300px;
+}
+
+.drop-box.enter {
+    border-color: blue;
+}

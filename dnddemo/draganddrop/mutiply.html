@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="public/app.css">
+</head>
+<body>
+
+<!--画布容器-->
+<div id="box">
+    <div class="btn-list">
+        <input type="button" value="选择图片">
+        <input type="file" multiple accept="image/*">
+    </div>
+
+    <div id="selectingBox">
+    </div>
+
+    <!--控制图标-->
+    <div id="shapeControls" draggable="true">
+        <div class="controller"></div>
+        <div class="controller"></div>
+        <div class="controller"></div>
+        <div class="controller"></div>
+    </div>
+
+    <!--图片列表-->
+    <div class="img-list">
+
+    </div>
+
+
+</div>
+
+<!--可释放区域-->
+<div class="drop-box">
+
+</div>
+
+<script src="app/common.js"></script>
+<script src="app/app.js"></script>
+</body>
+</html>
