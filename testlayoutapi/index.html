@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+    window.onload = function () {
+        var getTemplateUrl = 'http://portal.zno.com.dd/portal/templateService/getTemplate.ep?uidPk=35916';
+        var getAllProductData = 'http://portal.zno.com.dd/portal/templateService/getAllProductData.ep';
+        var saveTemplate = 'http://portal.zno.com.dd/portal/templateService/saveTemplate.ep';
+        var getBookInformation = 'http://portal.zno.com.dd/portal/templateService/getBookInformation.ep';
+        var updateTemplate = 'http://portal.zno.com.dd/portal/templateService/updateTemplate.ep';
+        var publishTemplate = 'http://portal.zno.com.dd/portal/templateService/publishTemplate.ep';
+
+        $.get({
+            url: getAllProductData,
+            headers: {
+                cookie:'JSESSIONID=9DDB087ADAB9EED1CF45B897190C9E19'
+            }
+        }).then(function (result) {
+            console.log(result);
+        });
+    };
+</script>
+</body>
+</html>

@@ -54,8 +54,8 @@ var common = (function () {
         // 滚动条的滚动距离
         var scrollPosition = getScrollPosition();
 
-        var left = ele.offsetLeft + scrollPosition.left;
-        var top = ele.offsetTop + scrollPosition.top;
+        var left = ele.offsetLeft ;
+        var top = ele.offsetTop ;
         var width = ele.clientWidth;
         var height = ele.clientHeight;
 
@@ -64,6 +64,28 @@ var common = (function () {
             top: top,
             width: width,
             height: height
+        };
+    };
+
+    /**
+     * 返回HTML element相对于跟节点的偏移量.
+     * @param item
+     * @returns {{top: number, left: number}}
+     */
+    var getOffset = function (item) {
+        var top = 0;
+        var left = 0;
+
+        while(item.offsetParent){
+            top += item.offsetTop;
+            left += item.offsetLeft;
+
+            item = item.offsetParent;
+        }
+
+        return {
+            top: top,
+            left: left
         };
     };
 

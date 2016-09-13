@@ -8,7 +8,7 @@ body {
     background-color: #eee;
 }
 
-::selection{
+::selection {
     background: none;
 }
 
@@ -20,9 +20,24 @@ body {
     float: left;
 }
 
+.nw-resize {
+    cursor: nw-resize;
+}
+
+.n-resize{
+    cursor: n-resize;
+}
+
+.ne-resize {
+    cursor: ne-resize;
+}
+
+.w-resize {
+    cursor: w-resize;
+}
+
 /*canvas画布*/
 .canvas {
-
 }
 
 /*canvas*/
@@ -57,18 +72,19 @@ body {
     overflow: hidden;
 }
 
-.canvas canvas{
+.canvas canvas {
     background-color: #eee;
 }
 
-.working .item{
+.working .item {
     position: absolute;
-    top:50px;
+    top: 50px;
     left: 50px;
     cursor: move;
+    z-index: 10;
 }
 
-.working .item::selection{
+.working .item::selection {
     background: none;
 }
 
@@ -113,7 +129,8 @@ body {
     border: 1px solid rgb(136, 51, 51);
     display: none;
     cursor: move;
-    z-index: 10;
+    z-index: 11;
+    background: rgba(0, 0, 0, 0);
 }
 
 #shapeControls.show {
@@ -122,30 +139,45 @@ body {
 
 .controller {
     position: absolute;
+}
+
+.controller .shape{
     background: white;
     border: 1px solid rgb(136, 51, 51);
     width: 6px;
     height: 6px;
+    margin: 6px;
 }
 
 .controller:nth-of-type(1) {
-    top: -4px;
-    left: -4px;
+    /*cursor: nw-resize;*/
 }
 
 .controller:nth-of-type(2) {
-    top: -4px;
-    left: 196px;
+    /*cursor: n-resize;*/
 }
 
 .controller:nth-of-type(3) {
-    top: 196px;
-    left: -4px;
+    /*cursor: ne-resize;*/
 }
 
 .controller:nth-of-type(4) {
-    top: 196px;
-    left: 196px;
+    /*cursor: w-resize;*/
+}
+
+.controller:nth-of-type(5) {
+    /*cursor: nw-resize;*/
+}
+
+.controller:nth-of-type(6) {
+    /*cursor: n-resize;*/
+}
+
+.controller:nth-of-type(7) {
+    /*cursor: ne-resize;*/
+}
+.controller:nth-of-type(8) {
+    /*cursor: w-resize;*/
 }
 
 /*选中元素的图标容器*/
@@ -167,28 +199,28 @@ body {
     display: none;
 }
 
-.shape-contour.show .shape-anchor{
+.shape-contour.show .shape-anchor {
     display: block;
 }
 
-.shape-anchor:nth-of-type(1){
+.shape-anchor:nth-of-type(1) {
     top: -3px;
     left: 50%;
 }
 
-.shape-anchor:nth-of-type(2){
+.shape-anchor:nth-of-type(2) {
     top: 50%;
     left: 100%;
     transform: translateX(-3px);
 }
 
-.shape-anchor:nth-of-type(3){
+.shape-anchor:nth-of-type(3) {
     top: 100%;
     left: 50%;
     transform: translateY(-3px);
 }
 
-.shape-anchor:nth-of-type(4){
+.shape-anchor:nth-of-type(4) {
     top: 50%;
     left: -3px;
 }
